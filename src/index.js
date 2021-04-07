@@ -1,13 +1,14 @@
-import {
-  themes, defaultTheme
-} from './common/constants/default-values';
+import { defaultTheme, ConstantNames } from './common/constants/default-values';
+import { UITheme } from './common/enums/theme';
 
-const previousUITheme = localStorage.getItem('ui-theme');
+const themes = Object.values(UITheme);
+
+const previousUITheme = localStorage.getItem(ConstantNames.UITheme);
 const currentUITheme = (previousUITheme && themes.includes(previousUITheme)) ? previousUITheme : defaultTheme;
-localStorage.setItem('ui-theme', currentUITheme);
+localStorage.setItem(ConstantNames.UITheme, currentUITheme);
 
 const render = () => {
-  import(`./assets/scss/themes/${currentUITheme}.scss`).then(() => {
+  import(`./assets/scss/themes/${String(currentUITheme).toLocaleLowerCase()}.scss`).then(() => {
     require('./common/api/configuration');
     require('./AppRenderer');
   });

@@ -13,7 +13,7 @@ import { LoadingSpinner } from './components/common/spinner';
 import { connectAuthCheck } from './common/redux/connects';
 import { UserRole } from './common/enums/auth';
 
-function App({ history, tokenVerified, authenticated, userRole, verifyAccessTokenAction }) {
+function App({ history, tokenVerified, authenticated, userRole, verifyAccessTokenAction, toggleDarkTheme }) {
   useEffect(() => {
     verifyAccessTokenAction(history, false);
   }, []);

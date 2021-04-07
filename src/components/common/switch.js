@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 export const CustomSwitch = ({ size, label, color, value, onChange, className }) => {
-    const [id, setId] = useState('dark-theme');
+    const [id, setId] = useState('');
     useEffect(() => {
         setId(String(Date.now()).toLowerCase());
     }, []);
@@ -15,7 +15,7 @@ export const CustomSwitch = ({ size, label, color, value, onChange, className })
             'custom-switch-lg': size === 'lg',
             'custom-switch-xl': size === 'xl'
         })}>
-            <input type='checkbox' className='custom-control-input' id={`switch-${id}`} value={value} onChange={onChange}/>
+            <input type='checkbox' className='custom-control-input' id={`switch-${id}`} checked={value} onChange={onChange}/>
             <label className={classNames('custom-control-label', `custom-control-label-${color}`)} htmlFor={`switch-${id}`}>{}</label>
             <label>{label}</label>
         </div>

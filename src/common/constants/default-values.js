@@ -1,10 +1,12 @@
+import { UITheme } from '../enums/theme';
+
 // UI Theme
-export const themes = [ 'light', 'dark' ];
-export const defaultTheme = 'light';
+export const defaultTheme = UITheme.Light;
 
 // Const Names
 export const ConstantNames = {
-    AccessToken: 'access-token'
+    AccessToken: 'access-token',
+    UITheme: 'ui-theme'
 }
 
 // API Integration

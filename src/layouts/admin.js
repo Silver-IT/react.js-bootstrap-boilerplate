@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import {
     Switch,
@@ -10,11 +10,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 import AdminDashboard from '../pages/admin/dashboard';
-import { connectAuth } from '../common/redux/connects';
 import { CustomSwitch } from '../components/common/switch';
+import { connectAuth } from '../common/redux/connects';
+import { isDarkTheme, toggleDarkTheme } from '../common/utils/theme';
 
 function AdminLayout({ match, logoutUserAction }) {
-    const [darkTheme, setDarkTheme] = useState(false);
+    const [darkTheme, setDarkTheme] = useState(isDarkTheme());
 
     return (<div className='vh-100 vw-100'>
         <Navbar bg='dark' variant='dark' expand='md'>
@@ -23,7 +24,7 @@ function AdminLayout({ match, logoutUserAction }) {
             <Navbar.Collapse className='justify-content-end'>
                 <Nav className='ml-auto mr-3'>
                     <div className='d-flex'>
-                        <CustomSwitch className='my-auto mr-1' value={darkTheme} onChange={e => setDarkTheme(e.target.checked)} />
+                        <CustomSwitch className='my-auto mr-1' value={darkTheme} onChange={e => toggleDarkTheme(e.target.checked)} />
                         <Nav.Link disabled className='px-0'>Dark Theme</Nav.Link>
                     </div>
                     <NavDropdown alignRight title={<FontAwesomeIcon className='mx-1 my-auto' icon={faUser} size='lg' />}>
