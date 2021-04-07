@@ -13,7 +13,7 @@ import ForgotPasswordPage from '../pages/auth/forgot-password';
 import ResetPasswordPage from '../pages/auth/reset-password';
 import RegisterPage from '../pages/auth/register';
 import { CustomSwitch } from '../components/common/switch';
-import { connectAuth } from '../redux/connects';
+import { connectAuth } from '../common/redux/connects';
 
 function AnonymousLayout({ authenticated, history, logoutUserAction }) {
     const [darkTheme, setDarkTheme] = useState(false);

@@ -10,8 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 import CustomerDashboard from '../pages/customer/dashboard';
-import { connectAuth } from '../redux/connects';
 import { CustomSwitch } from '../components/common/switch';
+import { connectAuth } from '../common/redux/connects';
 
 function CustomerLayout({ match, logoutUserAction }) {
     const [darkTheme, setDarkTheme] = useState(false);

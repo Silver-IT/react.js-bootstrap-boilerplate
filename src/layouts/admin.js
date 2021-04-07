@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 import AdminDashboard from '../pages/admin/dashboard';
-import { connectAuth } from '../redux/connects';
+import { connectAuth } from '../common/redux/connects';
 import { CustomSwitch } from '../components/common/switch';
 
 function AdminLayout({ match, logoutUserAction }) {
