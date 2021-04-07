@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { decodeToken, isExpired } from "react-jwt";
+
 import { DevAPIServer, ProdAPIServer, ConstantNames } from '../constants/default-values';
 
 const APIServer = process.env.NODE_ENV === 'PRODUCTION' ? ProdAPIServer : DevAPIServer;
@@ -25,9 +27,10 @@ const AuthAPI =  {
     sendPasswordResetEmail: (email) => {
 
     },
-    getDefaultRedirectPath: user => {
-        if (!user) return '/';
-        return `/${String(user.role).toLowerCase()}/dashboard`;
+    getDefaultRedirectPath: () => {
+        const decodedToken = decodeToken(AuthAPI.getAccessToken());
+        if (!decodedToken || !decodedToken.role) return '/';
+        return `/${String(decodedToken.role).toLowerCase()}/dashboard`;
     },
     getAccessToken: () => {
         return localStorage.getItem(ConstantNames.AccessToken);

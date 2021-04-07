@@ -57,7 +57,7 @@ function* verifyAccessTokenNow({ payload }) {
         if (user) {
             yield put(verifyAccessTokenSuccess(user));
             if (forceRedirect) {
-                history.replace(AuthAPI.getDefaultRedirectPath(user));
+                history.replace(AuthAPI.getDefaultRedirectPath());
             }
         } else {
             yield put(verifyAccessTokenError(message));

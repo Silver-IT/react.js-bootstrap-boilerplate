@@ -15,6 +15,7 @@ import RegisterPage from '../pages/auth/register';
 import { CustomSwitch } from '../components/common/switch';
 import { connectAuth } from '../common/redux/connects';
 import { isDarkTheme, toggleDarkTheme } from '../common/utils/theme';
+import AuthAPI from '../common/api/auth';
 
 function AnonymousLayout({ authenticated, history, logoutUserAction }) {
     const [darkTheme, setDarkTheme] = useState(isDarkTheme());
@@ -22,11 +23,12 @@ function AnonymousLayout({ authenticated, history, logoutUserAction }) {
     return (<div className='vh-100 vw-100'>
         <Navbar bg='dark' variant='dark' expand='md'>
             <Navbar.Brand>
-                <span className='cursor-pointer' onClick={() => history.push('/')}>Welcome to My Web Site</span>
+                <span className='cursor-pointer' onClick={() => history.push('/')}>Welcome to Silver IT</span>
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse className='justify-content-end'>
                 <Nav className='ml-auto mr-3'>
+                    { authenticated ? <Nav.Link className='ml-2' onClick={() => history.push(AuthAPI.getDefaultRedirectPath())}>Go to Dashboard</Nav.Link> : null}
                     <div className='d-flex'>
                         <CustomSwitch className='my-auto mr-1' value={darkTheme} onChange={e => toggleDarkTheme(e.target.checked)} />
                         <Nav.Link disabled className='px-0'>Dark Theme</Nav.Link>
