@@ -20,7 +20,9 @@ function AnonymousLayout({ authenticated, history, logoutUserAction }) {
 
     return (<div className='vh-100 vw-100'>
         <Navbar bg='dark' variant='dark' expand='md'>
-            <Navbar.Brand>Welcome to My Web Site</Navbar.Brand>
+            <Navbar.Brand>
+                <span className='cursor-pointer' onClick={() => history.push('/')}>Welcome to My Web Site</span>
+            </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse className='justify-content-end'>
                 <Nav className='ml-auto mr-3'>

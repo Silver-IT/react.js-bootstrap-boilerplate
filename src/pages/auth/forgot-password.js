@@ -8,8 +8,8 @@ import { withRouter } from 'react-router';
 
 function ForgotPasswordPage({ history }) {
     return (
-        <div className='bg-primary d-flex justify-content-center align-items-center'>
-            <Card style={{ width: 'fit-content' }}>
+        <div className='bg-primary py-100'>
+            <Card className='mx-auto' style={{ width: 'fit-content' }}>
                 <Card.Header as='h5'>Forgot Password?</Card.Header>
                 <Card.Body>
                     <Form>
