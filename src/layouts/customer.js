@@ -9,6 +9,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
+import CustomerDashboard from '../pages/customer/dashboard';
 import { connectAuth } from '../redux/connects';
 import { CustomSwitch } from '../components/common/switch';
 
@@ -36,9 +37,7 @@ function CustomerLayout({ match, logoutUserAction }) {
             </Navbar.Collapse>
         </Navbar>
         <Switch>
-            <Route exact path={`${match.url}/dashboard`}>
-                <div>Customer Dashboard</div>
-            </Route>
+            <Route exact path={`${match.url}/dashboard`} component={CustomerDashboard} />
             <Route exact path={`${match.url}/users`}>
                 <div>User Management</div>
             </Route>
