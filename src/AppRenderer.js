@@ -3,9 +3,9 @@ import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { LoadingSpinner } from './components/common/spinner';
 import App from './App';
-import store from './redux/store';
+import { LoadingSpinner } from './components/common/spinner';
+import store from './common/redux/store';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

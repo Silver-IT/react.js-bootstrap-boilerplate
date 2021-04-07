@@ -10,10 +10,10 @@ import AdminLayout from './layouts/admin';
 import CustomerLayout from './layouts/customer';
 import AnonymousLayout from './layouts/anonymous';
 import { LoadingSpinner } from './components/common/spinner';
-import { connectAuthCheck } from './redux/connects';
-import { UserRole } from './enums/auth';
+import { connectAuthCheck } from './common/redux/connects';
+import { UserRole } from './common/enums/auth';
 
-function App({ history, tokenVerified, authenticated, userRole, verifyAccessTokenAction }) {
+function App({ history, tokenVerified, authenticated, userRole, verifyAccessTokenAction, toggleDarkTheme }) {
   useEffect(() => {
     verifyAccessTokenAction(history, false);
   }, []);

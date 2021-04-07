@@ -6,8 +6,8 @@ import {
 } from 'react-bootstrap';
 import { withRouter } from 'react-router';
 
-import AuthAPI from '../../api/auth';
-import { connectAuth } from '../../redux/connects';
+import AuthAPI from '../../common/api/auth';
+import { connectAuth } from '../../common/redux/connects';
 
 function LoginPage({ user, loginUserAction, history }) {
     const [email, setEmail] = useState('');
