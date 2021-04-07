@@ -14,12 +14,14 @@ import { CustomSwitch } from '../components/common/switch';
 import { connectAuth } from '../common/redux/connects';
 import { isDarkTheme, toggleDarkTheme } from '../common/utils/theme';
 
-function CustomerLayout({ match, logoutUserAction }) {
+function CustomerLayout({ match, history, logoutUserAction }) {
     const [darkTheme, setDarkTheme] = useState(isDarkTheme());
 
     return (<div className='vh-100 vw-100'>
         <Navbar bg='dark' variant='dark' expand='md'>
-            <Navbar.Brand>Welcome to Customer Page</Navbar.Brand>
+            <Navbar.Brand>
+                <span className='cursor-pointer' onClick={() => history.push('/')}>Welcome to Silver IT</span>
+            </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse className='justify-content-end'>
                 <Nav className='ml-auto mr-3'>

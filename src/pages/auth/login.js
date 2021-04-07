@@ -14,7 +14,7 @@ function LoginPage({ user, loginUserAction, history }) {
     const [password, setPassword] = useState('');
 
     useEffect(() => {
-        user && history.replace(AuthAPI.getDefaultRedirectPath(user));
+        user && history.replace(AuthAPI.getDefaultRedirectPath());
     }, [user])
 
     return (
