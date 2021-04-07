@@ -1,0 +1,36 @@
+@mixin absolute_fit_parent() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+@mixin pretty-scroll() {
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: rgba(102, 102, 102, 0.5);
+        outline: 1px solid rgba(102, 102, 102, 0.5);
+    }
+}
+
+@mixin hover_bg-effect($color, $duration) {
+    cursor: pointer;
+    transition: ease background-color #{$duration}s;
+    &:hover {
+        background-color: $color;
+    }
+}
+
+@mixin hover_font-effect($color, $duration) {
+    cursor: pointer;
+    transition: ease color #{$duration}s;
+    &:hover {
+        color: $color;
+    }
+}

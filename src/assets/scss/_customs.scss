@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* 1.Layout */
+
+
+/* 2.Cursor */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* 3.Switch */
+@mixin switch($res: "sm") {
+  $index: 1rem;
+  $mainVal: 1rem;
+
+  @if $res == "md" {
+    $index: 2rem;
+    $mainVal: 1.5rem;
+  } @else if $res == "lg" {
+    $index: 3rem;
+    $mainVal: 2rem;
+  } @else if $res == "xl" {
+    $index: 4rem;
+    $mainVal: 2.5rem;
+  }
+
+  .custom-control-label {
+    padding-left: #{$index / 3};
+    padding-bottom: #{$mainVal / 3};
+
+    &::before {
+      height: $mainVal;
+      width: calc(#{$index} + 0.75rem);
+      border-radius: $mainVal * 2;
+      border-width: 0 !important;
+      top: 0;
+      background-color: #adb5bd;
+    }
+
+    &::after {
+      width: calc(#{$mainVal} - 4px);
+      height: calc(#{$mainVal} - 4px);
+      border-radius: calc(#{$index} - (#{$mainVal} / 2));
+      top: 2px;
+    }
+  }
+
+  @each $name, $theme-color in $theme-colors {
+    .custom-control-input:checked ~ .custom-control-label-#{$name}::before {
+      background-color: $theme-color;
+    }
+
+    .custom-control-input:focus:not(:checked) ~ .custom-control-label-#{$name}::before {
+      background-color: #adb5bd;
+      box-shadow: 0 0 0 1px rgba(#adb5bd, 0.5);
+    }
+
+    .custom-control-input:focus:checked ~ .custom-control-label-#{$name}::before {
+      background-color: $theme-color;
+      box-shadow: 0 0 0 1px rgba($theme-color, 0.5);
+    }
+
+    .custom-control-input:not(:disabled):active:not(:checked) ~ .custom-control-label::before {
+      background-color: #adb5bd;
+    }
+    
+    .custom-control-label-#{$name}::after {
+      background-color: white;
+    }
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(calc(#{$mainVal} - 0.25rem));
+  }
+}
+
+// YOU CAN PUT ALL RESOLUTION HERE
+// sm - DEFAULT, md, lg, xl
+.custom-switch.custom-switch-sm {
+  @include switch();
+}
+
+.custom-switch.custom-switch-md {
+  @include switch("md");
+}
+
+.custom-switch.custom-switch-lg {
+  @include switch("lg");
+}
+
+.custom-switch.custom-switch-xl {
+  @include switch("xl");
+}
+
+/* 4.Mouse Hover Effects */
+.hover-underline {
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,96 @@
+// Spacing
+@for $i from 1 through 100 {
+    // spacing classes
+    .ml-#{$i} {
+        margin-left: #{$i}px;
+    }
+    .mr-#{$i} {
+        margin-right: #{$i}px;
+    }
+    .mx-#{$i} {
+        margin-left: #{$i}px;
+        margin-right: #{$i}px;
+    }
+    .mt-#{$i} {
+        margin-top: #{$i}px;
+    }
+    .mb-#{$i} {
+        margin-bottom: #{$i}px;
+    }
+    .my-#{$i} {
+        margin-top: #{$i}px;
+        margin-bottom: #{$i}px;
+    }
+    .m-#{$i} {
+        margin: #{$i}px;
+    }
+    .pl-#{$i} {
+        padding-left: #{$i}px;
+    }
+    .pr-#{$i} {
+        padding-right: #{$i}px;
+    }
+    .px-#{$i} {
+        padding-left: #{$i}px;
+        padding-right: #{$i}px;
+    }
+    .pt-#{$i} {
+        padding-top: #{$i}px;
+    }
+    .pb-#{$i} {
+        padding-bottom: #{$i}px;
+    }
+    .py-#{$i} {
+        padding-top: #{$i}px;
+        padding-bottom: #{$i}px;
+    }
+    .p-#{$i} {
+        padding: #{$i}px;
+    }
+}
+
+// Flex
+.flex-auto {
+    flex: auto;
+}
+
+@for $i from 1 through 12 {
+    .flex-#{$i} {
+        flex: #{$i};
+    }
+}
+
+// Typography
+@for $i from 1 through 100 {
+    .font-size-#{$i}vw {
+        font-size: #{$i}vw;
+    }
+
+    .font-size-#{$i}vh {
+        font-size: #{$i}vh;
+    }
+}
+
+// Layout
+@for $i from 0 through 1000 {
+    .z-index-#{$i} {
+        z-index: #{$i};
+    }
+}
+
+// Sizing
+@for $i from 1 through 5 {
+    .w-#{$i}rem {
+        width: #{$i}rem;
+    }
+
+    .h-#{$i}rem {
+        height: #{$i}rem;
+    }
+
+    .fixed-center-m#{$i} {
+        position: fixed;
+        left: calc(50vw - #{$i}rem);
+        top: calc(50vh - #{$i}rem);
+    }
+}
